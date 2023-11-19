@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Docente;
+use App\Models\Curso;
 use Illuminate\Http\Request;
 
-class DocenteController extends Controller
+class CursoController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Docente::all();
+        return Curso::all();
     }
 
     /**
@@ -28,15 +28,14 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        $docente = new Docente();
+        $curso = new Curso();
 
-        $docente->nombre = $request->nombre;
-        $docente->apellido = $request->apellido;
-        $docente->email = $request->email;
+        $curso->nombre = $request->nombre;
+        $curso->docente_id = $request->docente_id;
         
-        $docente->save();
+        $curso->save();
 
-        return "docente registrado correctamente";
+        return "curso registrado correctamente";
     }
 
     /**
@@ -44,13 +43,13 @@ class DocenteController extends Controller
      */
     public function show($id)
     {
-        return Docente::find($id);
+        return Curso::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Docente $docente)
+    public function edit(Curso $curso)
     {
         //
     }
@@ -60,15 +59,14 @@ class DocenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $docente = Docente::find($id);
+        $curso = Curso::find($id);
 
-        $docente->nombre = $request->nombre;
-        $docente->apellido = $request->apellido;
-        $docente->email = $request->email;
+        $curso->nombre = $request->nombre;
+        $curso->docente_id = $request->docente_id;
         
-        $docente->save();
+        $curso->save();
 
-        return "editado correctamente";
+        return "curso editado correctamente";
     }
 
     /**
@@ -76,9 +74,9 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-        $docente = Docente::find($id);
-        $docente->delete();
+        $curso = Curso::find($id);
+        $curso->delete();
 
-        return " eliminado correctamente";
+        return "curso eliminado correctamente";
     }
 }

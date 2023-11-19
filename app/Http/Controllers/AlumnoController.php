@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Docente;
+use App\Models\alumno;
 use Illuminate\Http\Request;
 
-class DocenteController extends Controller
+class AlumnoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Docente::all();
+        return Alumno::all();
     }
 
     /**
@@ -28,29 +28,30 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        $docente = new Docente();
+        $alumno = new Alumno();
+       
 
-        $docente->nombre = $request->nombre;
-        $docente->apellido = $request->apellido;
-        $docente->email = $request->email;
+        $alumno->nombre = $request->nombre;
+        $alumno->apellido = $request->apellido;
+        $alumno->email = $request->email;
         
-        $docente->save();
+        $alumno->save();
 
-        return "docente registrado correctamente";
+        return "alumno registrado Exítosamente";
     }
 
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($id_alumno)
     {
-        return Docente::find($id);
+        return Alumno::find($id_alumno);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Docente $docente)
+    public function edit(Alumno $alumno)
     {
         //
     }
@@ -60,15 +61,15 @@ class DocenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $docente = Docente::find($id);
+        $alumno = Alumno::find($id);
 
-        $docente->nombre = $request->nombre;
-        $docente->apellido = $request->apellido;
-        $docente->email = $request->email;
+        $alumno->nombre = $request->nombre;
+        $alumno->apellido = $request->apellido;
+        $alumno->email = $request->email;
         
-        $docente->save();
+        $alumno->save();
 
-        return "editado correctamente";
+        return "se edito correctamente";
     }
 
     /**
@@ -76,9 +77,9 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-        $docente = Docente::find($id);
-        $docente->delete();
+        $alumno = Alumno::find($id);
+        $alumno->delete();
 
-        return " eliminado correctamente";
+        return "Se ha eliminado el alumno";
     }
 }

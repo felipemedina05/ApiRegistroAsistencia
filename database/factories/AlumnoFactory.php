@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Docente>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\alumno>
  */
-class DocenteFactory extends Factory
+class AlumnoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,6 +20,7 @@ class DocenteFactory extends Factory
             'nombre'=>fake()->name(),
             'apellido'=>fake()->lastName(),
             'email'=>fake()->email(),
+            
         ];
     }
 }

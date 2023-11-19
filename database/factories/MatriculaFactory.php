@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Docente>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Matricula>
  */
-class DocenteFactory extends Factory
+class MatriculaFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,9 @@ class DocenteFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre'=>fake()->name(),
-            'apellido'=>fake()->lastName(),
-            'email'=>fake()->email(),
+            'fecha_matricula'=>fake()->date(),
+            'alumno_id' =>fake()->numberBetween(1,20),
+            'curso_id' =>fake()->numberBetween(1,7),
         ];
     }
 }
