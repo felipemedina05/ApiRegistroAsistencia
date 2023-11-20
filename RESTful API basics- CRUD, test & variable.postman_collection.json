@@ -1,0 +1,1785 @@
+{
+	"info": {
+		"_postman_id": "726fe2c4-c2bf-431c-9acb-3c9c7696bab0",
+		"name": "RESTful API basics: CRUD, test & variable",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17258452",
+		"_collection_link": "https://crimson-shadow-30745.postman.co/workspace/Team-Workspace~c5e23b7c-b52d-4a75-83a6-ed2ae9f102d0/collection/17258452-726fe2c4-c2bf-431c-9acb-3c9c7696bab0?action=share&source=collection_link&creator=17258452"
+	},
+	"item": [
+		{
+			"name": "Get data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://127.0.0.1:8000/api/alumnos/121",
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": [
+				{
+					"name": "Get alumnos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/alumnos"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 16:59:53 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 16:59:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"Mrs. Monica Zieme III\",\n        \"apellido\": \"Collier\",\n        \"email\": \"ziemann.dereck@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"nombre\": \"Jaqueline McGlynn\",\n        \"apellido\": \"Walter\",\n        \"email\": \"hollis18@huel.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"nombre\": \"Trevor Prosacco PhD\",\n        \"apellido\": \"Jacobs\",\n        \"email\": \"christy.konopelski@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"nombre\": \"Isaias Nader\",\n        \"apellido\": \"Bechtelar\",\n        \"email\": \"john74@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"nombre\": \"Efrain Crist\",\n        \"apellido\": \"Buckridge\",\n        \"email\": \"west.lucile@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"nombre\": \"Dr. Dawn Block\",\n        \"apellido\": \"Hirthe\",\n        \"email\": \"xboyle@damore.net\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"nombre\": \"Erica Terry\",\n        \"apellido\": \"Rodriguez\",\n        \"email\": \"brekke.daniella@dare.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"nombre\": \"Reyes Jenkins\",\n        \"apellido\": \"Rippin\",\n        \"email\": \"forrest.hoeger@schiller.info\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"nombre\": \"Torrance West DVM\",\n        \"apellido\": \"Waters\",\n        \"email\": \"hbeier@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"nombre\": \"Jordi Becker\",\n        \"apellido\": \"Emmerich\",\n        \"email\": \"jaylon81@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 11,\n        \"nombre\": \"Ms. Annamae Kihn Sr.\",\n        \"apellido\": \"Gleason\",\n        \"email\": \"brycen77@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 12,\n        \"nombre\": \"Tod Beer\",\n        \"apellido\": \"Fisher\",\n        \"email\": \"scotty.wunsch@stokes.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 13,\n        \"nombre\": \"Lonny Jacobs\",\n        \"apellido\": \"Wiza\",\n        \"email\": \"wyman.jeanie@pouros.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 14,\n        \"nombre\": \"Verner O'Reilly\",\n        \"apellido\": \"Ruecker\",\n        \"email\": \"pierce.nikolaus@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 15,\n        \"nombre\": \"Sedrick Becker DDS\",\n        \"apellido\": \"Hane\",\n        \"email\": \"christop.eichmann@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 16,\n        \"nombre\": \"Mrs. Lolita Hickle\",\n        \"apellido\": \"Beer\",\n        \"email\": \"johnpaul.yost@feil.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 17,\n        \"nombre\": \"Prof. Austyn Tremblay II\",\n        \"apellido\": \"Ferry\",\n        \"email\": \"zdaniel@cummerata.biz\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 18,\n        \"nombre\": \"Clark White II\",\n        \"apellido\": \"Welch\",\n        \"email\": \"von.dawson@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 19,\n        \"nombre\": \"Denis Kub\",\n        \"apellido\": \"Robel\",\n        \"email\": \"larson.sylvester@gusikowski.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 20,\n        \"nombre\": \"Ettie Sanford DVM\",\n        \"apellido\": \"Moore\",\n        \"email\": \"nrolfson@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 21,\n        \"nombre\": \"Gennaro Simonis\",\n        \"apellido\": \"Hagenes\",\n        \"email\": \"laurie07@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 22,\n        \"nombre\": \"Zackary Hane\",\n        \"apellido\": \"Pagac\",\n        \"email\": \"schamberger.keven@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 23,\n        \"nombre\": \"Prof. Bria Glover II\",\n        \"apellido\": \"Schumm\",\n        \"email\": \"mariela68@flatley.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 24,\n        \"nombre\": \"Trace Heller\",\n        \"apellido\": \"Raynor\",\n        \"email\": \"cormier.monserrate@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 25,\n        \"nombre\": \"Darby Turner\",\n        \"apellido\": \"Huel\",\n        \"email\": \"tmetz@donnelly.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 26,\n        \"nombre\": \"Max Trantow\",\n        \"apellido\": \"Fadel\",\n        \"email\": \"rempel.haylee@ortiz.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 27,\n        \"nombre\": \"Demetris Murazik\",\n        \"apellido\": \"Deckow\",\n        \"email\": \"oleta.vonrueden@ratke.org\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 28,\n        \"nombre\": \"Payton Weber IV\",\n        \"apellido\": \"Casper\",\n        \"email\": \"rhianna08@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 29,\n        \"nombre\": \"Ford Treutel I\",\n        \"apellido\": \"Lueilwitz\",\n        \"email\": \"vena.cormier@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 30,\n        \"nombre\": \"Ms. Malika Zemlak\",\n        \"apellido\": \"Zemlak\",\n        \"email\": \"noel.pacocha@jaskolski.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 31,\n        \"nombre\": \"Alberto Luettgen\",\n        \"apellido\": \"Pfannerstill\",\n        \"email\": \"judge65@lakin.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 32,\n        \"nombre\": \"Madonna Rath\",\n        \"apellido\": \"Rowe\",\n        \"email\": \"tyree11@botsford.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 33,\n        \"nombre\": \"Ismael Reinger\",\n        \"apellido\": \"Bruen\",\n        \"email\": \"gleichner.sterling@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 34,\n        \"nombre\": \"Renee Krajcik DDS\",\n        \"apellido\": \"Hoppe\",\n        \"email\": \"chyna.cummerata@beer.net\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 35,\n        \"nombre\": \"Alva Rowe\",\n        \"apellido\": \"Hodkiewicz\",\n        \"email\": \"ratke.lorna@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 36,\n        \"nombre\": \"Tyrique Graham\",\n        \"apellido\": \"Toy\",\n        \"email\": \"cecil.hand@harris.biz\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 37,\n        \"nombre\": \"Harley Shanahan\",\n        \"apellido\": \"Boyle\",\n        \"email\": \"hkeeling@ledner.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 38,\n        \"nombre\": \"Bonnie Terry\",\n        \"apellido\": \"Kreiger\",\n        \"email\": \"heidenreich.eleazar@kilback.net\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 39,\n        \"nombre\": \"Ms. Katarina Bauch V\",\n        \"apellido\": \"Green\",\n        \"email\": \"morissette.nils@skiles.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 40,\n        \"nombre\": \"Sonny Torphy\",\n        \"apellido\": \"Beier\",\n        \"email\": \"quinn99@welch.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 41,\n        \"nombre\": \"Fanny Ebert IV\",\n        \"apellido\": \"Will\",\n        \"email\": \"henriette.rau@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 42,\n        \"nombre\": \"Dr. Lon Mosciski\",\n        \"apellido\": \"Gusikowski\",\n        \"email\": \"senger.eveline@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 43,\n        \"nombre\": \"Willie Renner\",\n        \"apellido\": \"Cartwright\",\n        \"email\": \"colby.conn@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 44,\n        \"nombre\": \"Noemy Casper\",\n        \"apellido\": \"Halvorson\",\n        \"email\": \"khickle@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 45,\n        \"nombre\": \"Howell Walsh\",\n        \"apellido\": \"Kessler\",\n        \"email\": \"igorczany@ondricka.org\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 46,\n        \"nombre\": \"Isadore Zboncak\",\n        \"apellido\": \"Bogisich\",\n        \"email\": \"alexandra56@mclaughlin.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 47,\n        \"nombre\": \"Leila Beahan\",\n        \"apellido\": \"Jones\",\n        \"email\": \"ludwig.shanahan@beier.net\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 48,\n        \"nombre\": \"Ms. Ariane Swift\",\n        \"apellido\": \"Koss\",\n        \"email\": \"jpfannerstill@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 49,\n        \"nombre\": \"Frankie Kassulke\",\n        \"apellido\": \"Nicolas\",\n        \"email\": \"gjones@sawayn.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 50,\n        \"nombre\": \"Garry Kertzmann\",\n        \"apellido\": \"Keeling\",\n        \"email\": \"wintheiser.savanah@kozey.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 51,\n        \"nombre\": \"Jenifer Auer II\",\n        \"apellido\": \"Beahan\",\n        \"email\": \"krajcik.nelson@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 52,\n        \"nombre\": \"Chelsie Ratke\",\n        \"apellido\": \"Waters\",\n        \"email\": \"vpouros@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 53,\n        \"nombre\": \"Mr. Shayne Armstrong\",\n        \"apellido\": \"Keeling\",\n        \"email\": \"jbrakus@gaylord.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 54,\n        \"nombre\": \"Herminia Mertz\",\n        \"apellido\": \"Wolff\",\n        \"email\": \"maggio.marvin@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 55,\n        \"nombre\": \"Dr. Eunice Kozey\",\n        \"apellido\": \"Kilback\",\n        \"email\": \"aniyah43@schultz.info\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 56,\n        \"nombre\": \"Shanie Nikolaus\",\n        \"apellido\": \"Ankunding\",\n        \"email\": \"emery.ledner@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 57,\n        \"nombre\": \"Faye Shanahan\",\n        \"apellido\": \"Kessler\",\n        \"email\": \"lilla.altenwerth@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 58,\n        \"nombre\": \"Dr. Nyah Kshlerin\",\n        \"apellido\": \"Roob\",\n        \"email\": \"frami.cordia@parisian.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 59,\n        \"nombre\": \"Mr. Ward Kshlerin Sr.\",\n        \"apellido\": \"Ankunding\",\n        \"email\": \"areichel@koch.biz\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 60,\n        \"nombre\": \"Prof. Salvatore Gerhold IV\",\n        \"apellido\": \"Walker\",\n        \"email\": \"leola.denesik@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 61,\n        \"nombre\": \"Dr. Dayna Kozey DVM\",\n        \"apellido\": \"Powlowski\",\n        \"email\": \"halie71@ryan.org\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 62,\n        \"nombre\": \"Ms. Liza Tromp MD\",\n        \"apellido\": \"Jast\",\n        \"email\": \"colton.doyle@rutherford.info\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 63,\n        \"nombre\": \"Dr. Lenora Keeling IV\",\n        \"apellido\": \"Carter\",\n        \"email\": \"martin.douglas@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 64,\n        \"nombre\": \"Corbin Olson\",\n        \"apellido\": \"Smitham\",\n        \"email\": \"alexandrea.hane@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 65,\n        \"nombre\": \"Mr. Johnson Champlin\",\n        \"apellido\": \"O'Hara\",\n        \"email\": \"ernser.arnaldo@flatley.info\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 66,\n        \"nombre\": \"Lawrence Beatty Jr.\",\n        \"apellido\": \"Adams\",\n        \"email\": \"hegmann.julie@gleichner.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 67,\n        \"nombre\": \"Bailey Zulauf\",\n        \"apellido\": \"Rogahn\",\n        \"email\": \"purdy.ulices@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 68,\n        \"nombre\": \"Mr. Delbert Pacocha PhD\",\n        \"apellido\": \"Hickle\",\n        \"email\": \"buford.kling@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 69,\n        \"nombre\": \"Muriel Schuppe\",\n        \"apellido\": \"Herzog\",\n        \"email\": \"rreichert@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 70,\n        \"nombre\": \"Theodore Glover DVM\",\n        \"apellido\": \"Schumm\",\n        \"email\": \"henri.hessel@thiel.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 71,\n        \"nombre\": \"Matilda Kuvalis\",\n        \"apellido\": \"Borer\",\n        \"email\": \"velda54@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 72,\n        \"nombre\": \"Prof. Layla Lind DDS\",\n        \"apellido\": \"O'Connell\",\n        \"email\": \"dare.alia@wisoky.org\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 73,\n        \"nombre\": \"Cathrine Upton\",\n        \"apellido\": \"Mueller\",\n        \"email\": \"leuschke.lynn@nolan.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 74,\n        \"nombre\": \"Prof. Stephon O'Conner III\",\n        \"apellido\": \"Murphy\",\n        \"email\": \"drake94@auer.org\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 75,\n        \"nombre\": \"Prof. Taylor Hackett I\",\n        \"apellido\": \"Morissette\",\n        \"email\": \"elliot44@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 76,\n        \"nombre\": \"Marcos Predovic\",\n        \"apellido\": \"King\",\n        \"email\": \"creola.walsh@olson.biz\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 77,\n        \"nombre\": \"Marjorie Schumm\",\n        \"apellido\": \"Stark\",\n        \"email\": \"robin53@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 78,\n        \"nombre\": \"Marian Stokes\",\n        \"apellido\": \"Blick\",\n        \"email\": \"yhermann@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 79,\n        \"nombre\": \"David Batz\",\n        \"apellido\": \"Cartwright\",\n        \"email\": \"wvandervort@okon.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 80,\n        \"nombre\": \"Sydnee Pagac\",\n        \"apellido\": \"Jakubowski\",\n        \"email\": \"delmer14@baumbach.net\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 81,\n        \"nombre\": \"Asa Hessel\",\n        \"apellido\": \"Gutkowski\",\n        \"email\": \"pierce28@orn.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 82,\n        \"nombre\": \"Lysanne Blanda\",\n        \"apellido\": \"Rodriguez\",\n        \"email\": \"billie88@labadie.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 83,\n        \"nombre\": \"Brandt Schuster\",\n        \"apellido\": \"Gerlach\",\n        \"email\": \"aidan.runolfsdottir@von.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 84,\n        \"nombre\": \"Colt Feest\",\n        \"apellido\": \"Cartwright\",\n        \"email\": \"nnolan@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 85,\n        \"nombre\": \"Concepcion Kirlin\",\n        \"apellido\": \"Hudson\",\n        \"email\": \"iadams@mcdermott.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 86,\n        \"nombre\": \"Arnulfo Wyman\",\n        \"apellido\": \"Roberts\",\n        \"email\": \"howell.kayley@shields.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 87,\n        \"nombre\": \"Cathy Kerluke\",\n        \"apellido\": \"McKenzie\",\n        \"email\": \"conn.anibal@hayes.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 88,\n        \"nombre\": \"Dr. Chandler Vandervort\",\n        \"apellido\": \"Satterfield\",\n        \"email\": \"rocky.turcotte@lueilwitz.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 89,\n        \"nombre\": \"Annabell McLaughlin\",\n        \"apellido\": \"Cremin\",\n        \"email\": \"flatley.eula@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 90,\n        \"nombre\": \"Eulalia Hartmann\",\n        \"apellido\": \"Bayer\",\n        \"email\": \"douglas.stracke@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 91,\n        \"nombre\": \"Dorcas Tremblay\",\n        \"apellido\": \"Trantow\",\n        \"email\": \"lorena93@tillman.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 92,\n        \"nombre\": \"Missouri Shields\",\n        \"apellido\": \"Gutkowski\",\n        \"email\": \"feest.elva@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 93,\n        \"nombre\": \"Kaela Purdy\",\n        \"apellido\": \"Schamberger\",\n        \"email\": \"johnston.marcelino@beer.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 94,\n        \"nombre\": \"Crawford Schaefer III\",\n        \"apellido\": \"Ebert\",\n        \"email\": \"kweber@leuschke.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 95,\n        \"nombre\": \"Jamal Prosacco\",\n        \"apellido\": \"Grady\",\n        \"email\": \"kamren.green@hoeger.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 96,\n        \"nombre\": \"Murray Heathcote\",\n        \"apellido\": \"Kilback\",\n        \"email\": \"swift.vince@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 97,\n        \"nombre\": \"Prof. Oswald Connelly\",\n        \"apellido\": \"Balistreri\",\n        \"email\": \"maximus23@fritsch.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 98,\n        \"nombre\": \"Alycia Friesen\",\n        \"apellido\": \"Thompson\",\n        \"email\": \"dorris09@stark.biz\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 99,\n        \"nombre\": \"Mr. Miguel King\",\n        \"apellido\": \"Effertz\",\n        \"email\": \"kari21@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 100,\n        \"nombre\": \"Ms. Rozella Glover Sr.\",\n        \"apellido\": \"Morissette\",\n        \"email\": \"brando.rosenbaum@hyatt.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 101,\n        \"nombre\": \"Jena Boyer\",\n        \"apellido\": \"Deckow\",\n        \"email\": \"skessler@mcclure.net\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 102,\n        \"nombre\": \"Hilma Quigley\",\n        \"apellido\": \"Heller\",\n        \"email\": \"laura29@block.info\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 103,\n        \"nombre\": \"Elody Brown\",\n        \"apellido\": \"Runolfsdottir\",\n        \"email\": \"stamm.johnny@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 104,\n        \"nombre\": \"Emmanuel Wilkinson\",\n        \"apellido\": \"Casper\",\n        \"email\": \"brown.chelsey@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 105,\n        \"nombre\": \"Ally Lowe DVM\",\n        \"apellido\": \"Luettgen\",\n        \"email\": \"wilbert.raynor@wisozk.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 106,\n        \"nombre\": \"Maegan Tillman\",\n        \"apellido\": \"Heathcote\",\n        \"email\": \"emmerich.garnett@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 107,\n        \"nombre\": \"Ms. Nelda Batz IV\",\n        \"apellido\": \"Mante\",\n        \"email\": \"ankunding.angelita@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 108,\n        \"nombre\": \"Therese Feeney\",\n        \"apellido\": \"Mante\",\n        \"email\": \"schimmel.delphine@padberg.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 109,\n        \"nombre\": \"Linnie Gutmann\",\n        \"apellido\": \"Kuhlman\",\n        \"email\": \"senger.evie@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 110,\n        \"nombre\": \"Aletha Vandervort Jr.\",\n        \"apellido\": \"Fadel\",\n        \"email\": \"jennings.rodriguez@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 111,\n        \"nombre\": \"Prof. Cory Rowe\",\n        \"apellido\": \"D'Amore\",\n        \"email\": \"ardith12@quigley.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 112,\n        \"nombre\": \"Trever Blanda\",\n        \"apellido\": \"Keebler\",\n        \"email\": \"eulah.fadel@hotmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 113,\n        \"nombre\": \"Clay Wyman MD\",\n        \"apellido\": \"Collins\",\n        \"email\": \"brigitte40@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 114,\n        \"nombre\": \"Greg Gibson DDS\",\n        \"apellido\": \"McCullough\",\n        \"email\": \"qschoen@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 115,\n        \"nombre\": \"Dr. Lauryn Greenfelder\",\n        \"apellido\": \"Tremblay\",\n        \"email\": \"juanita.greenholt@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 116,\n        \"nombre\": \"Uriah Paucek\",\n        \"apellido\": \"Morissette\",\n        \"email\": \"gweissnat@kessler.info\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 117,\n        \"nombre\": \"Dr. Euna Langosh\",\n        \"apellido\": \"Lynch\",\n        \"email\": \"toy.dahlia@block.biz\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 118,\n        \"nombre\": \"Landen Barton\",\n        \"apellido\": \"Bogisich\",\n        \"email\": \"june.lang@stanton.info\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 119,\n        \"nombre\": \"Travis Gibson\",\n        \"apellido\": \"Swaniawski\",\n        \"email\": \"luther.larson@yahoo.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    },\n    {\n        \"id\": 120,\n        \"nombre\": \"Mathias Littel\",\n        \"apellido\": \"Pouros\",\n        \"email\": \"qstokes@gmail.com\",\n        \"created_at\": \"2023-11-18T15:16:52.000000Z\",\n        \"updated_at\": \"2023-11-18T15:16:52.000000Z\"\n    }\n]"
+				},
+				{
+					"name": "Get alumnos id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/alumnos/121"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:22:31 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:22:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 121,\n    \"nombre\": \"Andres Felipe\",\n    \"apellido\": \"Medina muños\",\n    \"email\": \"andresMedina@gmail.com\",\n    \"created_at\": \"2023-11-18T17:03:56.000000Z\",\n    \"updated_at\": \"2023-11-18T17:08:38.000000Z\"\n}"
+				},
+				{
+					"name": "Get docentes",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/docentes"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:13:40 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:13:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"Johnathan Weimann\",\n        \"apellido\": \"Nader\",\n        \"email\": \"dkuhic@yahoo.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"nombre\": \"Roxanne Kohler\",\n        \"apellido\": \"Rowe\",\n        \"email\": \"espencer@ohara.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"nombre\": \"Ms. Elsie Vandervort\",\n        \"apellido\": \"Ernser\",\n        \"email\": \"delta.braun@cummings.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"nombre\": \"Prof. Emmie Parisian\",\n        \"apellido\": \"Waters\",\n        \"email\": \"evonrueden@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"nombre\": \"Shawn Robel II\",\n        \"apellido\": \"Auer\",\n        \"email\": \"broderick.runolfsdottir@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"nombre\": \"Francesco Skiles\",\n        \"apellido\": \"Hartmann\",\n        \"email\": \"destiny81@west.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"nombre\": \"Donny Schmitt Sr.\",\n        \"apellido\": \"Grady\",\n        \"email\": \"watsica.maude@schiller.org\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"nombre\": \"Norbert Fisher Sr.\",\n        \"apellido\": \"Welch\",\n        \"email\": \"kboehm@hotmail.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"nombre\": \"Talia Brekke\",\n        \"apellido\": \"Daniel\",\n        \"email\": \"verla.parisian@prohaska.biz\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"nombre\": \"Samara Boehm\",\n        \"apellido\": \"Morissette\",\n        \"email\": \"vsawayn@hotmail.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 11,\n        \"nombre\": \"Paris Runolfsdottir\",\n        \"apellido\": \"Bayer\",\n        \"email\": \"elesch@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 12,\n        \"nombre\": \"Carlo Dibbert\",\n        \"apellido\": \"Skiles\",\n        \"email\": \"hhodkiewicz@beahan.biz\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 13,\n        \"nombre\": \"Prof. Sidney Jacobi PhD\",\n        \"apellido\": \"Rohan\",\n        \"email\": \"muller.magali@hotmail.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 14,\n        \"nombre\": \"Prof. Rhianna Yost\",\n        \"apellido\": \"Dibbert\",\n        \"email\": \"cindy16@hammes.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 15,\n        \"nombre\": \"Dr. Tyrell Abbott\",\n        \"apellido\": \"Abernathy\",\n        \"email\": \"ohand@moen.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 16,\n        \"nombre\": \"Ken Toy\",\n        \"apellido\": \"Dicki\",\n        \"email\": \"qdicki@yahoo.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 17,\n        \"nombre\": \"Cassandre Brown\",\n        \"apellido\": \"West\",\n        \"email\": \"wdoyle@blanda.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 18,\n        \"nombre\": \"Mrs. Alessia Klein MD\",\n        \"apellido\": \"Lang\",\n        \"email\": \"dubuque.lydia@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 19,\n        \"nombre\": \"Bette Walter I\",\n        \"apellido\": \"Cormier\",\n        \"email\": \"alysha78@hotmail.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 20,\n        \"nombre\": \"Alfred Gutkowski\",\n        \"apellido\": \"Abshire\",\n        \"email\": \"sbogan@roob.com\",\n        \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n    },\n    {\n        \"id\": 21,\n        \"nombre\": \"Kiel Doyle\",\n        \"apellido\": \"McCullough\",\n        \"email\": \"veronica.strosin@yahoo.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 22,\n        \"nombre\": \"Lera Spinka\",\n        \"apellido\": \"DuBuque\",\n        \"email\": \"crogahn@bogisich.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 23,\n        \"nombre\": \"Grayson Bayer\",\n        \"apellido\": \"Cartwright\",\n        \"email\": \"iliana60@kertzmann.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 24,\n        \"nombre\": \"Ethan Anderson\",\n        \"apellido\": \"Cummerata\",\n        \"email\": \"verdie04@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 25,\n        \"nombre\": \"Dr. Hershel Yundt\",\n        \"apellido\": \"Gutmann\",\n        \"email\": \"reilly.lupe@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 26,\n        \"nombre\": \"Ms. Hildegard Medhurst DVM\",\n        \"apellido\": \"Murazik\",\n        \"email\": \"lauretta41@howell.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 27,\n        \"nombre\": \"Prof. Euna Ryan III\",\n        \"apellido\": \"Keeling\",\n        \"email\": \"mark.vandervort@hotmail.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 28,\n        \"nombre\": \"Bennie Reichert\",\n        \"apellido\": \"Blick\",\n        \"email\": \"morissette.leanne@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 29,\n        \"nombre\": \"Rocky Schimmel Sr.\",\n        \"apellido\": \"Renner\",\n        \"email\": \"garrett78@yahoo.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 30,\n        \"nombre\": \"Prof. Ellsworth Kshlerin\",\n        \"apellido\": \"Russel\",\n        \"email\": \"tlittle@jacobi.info\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 31,\n        \"nombre\": \"Calista Langosh\",\n        \"apellido\": \"Kovacek\",\n        \"email\": \"macejkovic.cyrus@yahoo.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 32,\n        \"nombre\": \"Elwin Tillman\",\n        \"apellido\": \"Ratke\",\n        \"email\": \"aniya39@hotmail.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 33,\n        \"nombre\": \"Fabiola Klein Sr.\",\n        \"apellido\": \"Dibbert\",\n        \"email\": \"jadyn15@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 34,\n        \"nombre\": \"Nedra Wisozk DVM\",\n        \"apellido\": \"Anderson\",\n        \"email\": \"melisa.reilly@will.net\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 35,\n        \"nombre\": \"Isaiah Schuster\",\n        \"apellido\": \"Bartell\",\n        \"email\": \"bashirian.bennie@yahoo.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 36,\n        \"nombre\": \"Dr. Donny Murazik III\",\n        \"apellido\": \"Wunsch\",\n        \"email\": \"vkihn@yahoo.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 37,\n        \"nombre\": \"Ayana Hahn\",\n        \"apellido\": \"Torphy\",\n        \"email\": \"ckuphal@kling.biz\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 38,\n        \"nombre\": \"Prof. Cordia Howe MD\",\n        \"apellido\": \"Kertzmann\",\n        \"email\": \"alisha72@wiegand.biz\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 39,\n        \"nombre\": \"Marietta Senger\",\n        \"apellido\": \"Beahan\",\n        \"email\": \"annamarie98@gmail.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    },\n    {\n        \"id\": 40,\n        \"nombre\": \"Sarah Will\",\n        \"apellido\": \"Mueller\",\n        \"email\": \"lind.leilani@senger.com\",\n        \"created_at\": \"2023-11-18T18:44:45.000000Z\",\n        \"updated_at\": \"2023-11-18T18:44:45.000000Z\"\n    }\n]"
+				},
+				{
+					"name": "Get docentes id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/docentes/1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:14:29 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:14:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"nombre\": \"Johnathan Weimann\",\n    \"apellido\": \"Nader\",\n    \"email\": \"dkuhic@yahoo.com\",\n    \"created_at\": \"2023-11-18T18:44:16.000000Z\",\n    \"updated_at\": \"2023-11-18T18:44:16.000000Z\"\n}"
+				},
+				{
+					"name": "Get cursos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/cursos"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:15:46 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:15:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"QUIMICA\",\n        \"docente_id\": 2,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"nombre\": \"ARTES\",\n        \"docente_id\": 13,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"nombre\": \"MUSICA\",\n        \"docente_id\": 8,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"nombre\": \"CASTELLANO\",\n        \"docente_id\": 2,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"nombre\": \"QUIMICA\",\n        \"docente_id\": 1,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"nombre\": \"MUSICA\",\n        \"docente_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"nombre\": \"BIOLOGIA\",\n        \"docente_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"nombre\": \"MATEMATICAS\",\n        \"docente_id\": 13,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"nombre\": \"ARTES\",\n        \"docente_id\": 9,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"nombre\": \"QUIMICA\",\n        \"docente_id\": 2,\n        \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n    }\n]"
+				},
+				{
+					"name": "Get curso id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/cursos/2"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:16:16 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:16:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"nombre\": \"ARTES\",\n    \"docente_id\": 13,\n    \"created_at\": \"2023-11-18T18:46:37.000000Z\",\n    \"updated_at\": \"2023-11-18T18:46:37.000000Z\"\n}"
+				},
+				{
+					"name": "Get matricula",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/matriculas"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:24:58 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:24:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"fecha_matricula\": \"2020-10-06\",\n        \"alumno_id\": 13,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"fecha_matricula\": \"1985-12-25\",\n        \"alumno_id\": 20,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"fecha_matricula\": \"1995-06-26\",\n        \"alumno_id\": 7,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"fecha_matricula\": \"1986-04-14\",\n        \"alumno_id\": 6,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"fecha_matricula\": \"1993-01-30\",\n        \"alumno_id\": 15,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"fecha_matricula\": \"1980-07-26\",\n        \"alumno_id\": 4,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"fecha_matricula\": \"2003-04-27\",\n        \"alumno_id\": 14,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"fecha_matricula\": \"2006-09-06\",\n        \"alumno_id\": 6,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"fecha_matricula\": \"1992-04-04\",\n        \"alumno_id\": 14,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"fecha_matricula\": \"1989-02-01\",\n        \"alumno_id\": 10,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 11,\n        \"fecha_matricula\": \"2018-01-04\",\n        \"alumno_id\": 10,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 12,\n        \"fecha_matricula\": \"2014-07-12\",\n        \"alumno_id\": 10,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 13,\n        \"fecha_matricula\": \"1977-01-06\",\n        \"alumno_id\": 14,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 14,\n        \"fecha_matricula\": \"2018-08-03\",\n        \"alumno_id\": 20,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 15,\n        \"fecha_matricula\": \"2023-03-09\",\n        \"alumno_id\": 1,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 16,\n        \"fecha_matricula\": \"1979-05-15\",\n        \"alumno_id\": 7,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 17,\n        \"fecha_matricula\": \"1996-02-20\",\n        \"alumno_id\": 8,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 18,\n        \"fecha_matricula\": \"2017-02-13\",\n        \"alumno_id\": 1,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 19,\n        \"fecha_matricula\": \"1971-12-31\",\n        \"alumno_id\": 18,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 20,\n        \"fecha_matricula\": \"1982-09-19\",\n        \"alumno_id\": 8,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 21,\n        \"fecha_matricula\": \"1992-05-23\",\n        \"alumno_id\": 4,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 22,\n        \"fecha_matricula\": \"1993-09-17\",\n        \"alumno_id\": 15,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 23,\n        \"fecha_matricula\": \"1984-11-27\",\n        \"alumno_id\": 2,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 24,\n        \"fecha_matricula\": \"1974-02-17\",\n        \"alumno_id\": 18,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 25,\n        \"fecha_matricula\": \"2011-12-10\",\n        \"alumno_id\": 7,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 26,\n        \"fecha_matricula\": \"2002-02-07\",\n        \"alumno_id\": 19,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 27,\n        \"fecha_matricula\": \"2007-09-18\",\n        \"alumno_id\": 2,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 28,\n        \"fecha_matricula\": \"2014-12-09\",\n        \"alumno_id\": 2,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 29,\n        \"fecha_matricula\": \"1977-05-31\",\n        \"alumno_id\": 6,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 30,\n        \"fecha_matricula\": \"2001-12-29\",\n        \"alumno_id\": 10,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 31,\n        \"fecha_matricula\": \"1970-12-25\",\n        \"alumno_id\": 15,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 32,\n        \"fecha_matricula\": \"1974-11-16\",\n        \"alumno_id\": 12,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 33,\n        \"fecha_matricula\": \"2018-06-24\",\n        \"alumno_id\": 19,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 34,\n        \"fecha_matricula\": \"1974-08-27\",\n        \"alumno_id\": 6,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 35,\n        \"fecha_matricula\": \"2014-02-05\",\n        \"alumno_id\": 17,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 36,\n        \"fecha_matricula\": \"1988-03-25\",\n        \"alumno_id\": 15,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 37,\n        \"fecha_matricula\": \"1982-11-12\",\n        \"alumno_id\": 6,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 38,\n        \"fecha_matricula\": \"1994-09-01\",\n        \"alumno_id\": 10,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 39,\n        \"fecha_matricula\": \"1981-09-21\",\n        \"alumno_id\": 3,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 40,\n        \"fecha_matricula\": \"1975-08-15\",\n        \"alumno_id\": 17,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 41,\n        \"fecha_matricula\": \"2014-10-17\",\n        \"alumno_id\": 5,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 42,\n        \"fecha_matricula\": \"1974-12-28\",\n        \"alumno_id\": 4,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 43,\n        \"fecha_matricula\": \"1972-05-02\",\n        \"alumno_id\": 18,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 44,\n        \"fecha_matricula\": \"1999-02-06\",\n        \"alumno_id\": 5,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 45,\n        \"fecha_matricula\": \"1999-09-16\",\n        \"alumno_id\": 16,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 46,\n        \"fecha_matricula\": \"2007-05-17\",\n        \"alumno_id\": 9,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 47,\n        \"fecha_matricula\": \"1986-12-24\",\n        \"alumno_id\": 5,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 48,\n        \"fecha_matricula\": \"2003-02-08\",\n        \"alumno_id\": 14,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 49,\n        \"fecha_matricula\": \"2016-05-30\",\n        \"alumno_id\": 1,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 50,\n        \"fecha_matricula\": \"2008-01-27\",\n        \"alumno_id\": 13,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 51,\n        \"fecha_matricula\": \"2015-01-31\",\n        \"alumno_id\": 16,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 52,\n        \"fecha_matricula\": \"2006-06-20\",\n        \"alumno_id\": 19,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 53,\n        \"fecha_matricula\": \"1999-05-07\",\n        \"alumno_id\": 10,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 54,\n        \"fecha_matricula\": \"2010-02-13\",\n        \"alumno_id\": 3,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 55,\n        \"fecha_matricula\": \"1997-04-09\",\n        \"alumno_id\": 8,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 56,\n        \"fecha_matricula\": \"1981-05-25\",\n        \"alumno_id\": 16,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 57,\n        \"fecha_matricula\": \"2018-06-03\",\n        \"alumno_id\": 17,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 58,\n        \"fecha_matricula\": \"2004-03-28\",\n        \"alumno_id\": 8,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 59,\n        \"fecha_matricula\": \"2007-01-18\",\n        \"alumno_id\": 16,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 60,\n        \"fecha_matricula\": \"2012-06-12\",\n        \"alumno_id\": 7,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 61,\n        \"fecha_matricula\": \"1980-07-10\",\n        \"alumno_id\": 10,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 62,\n        \"fecha_matricula\": \"1979-07-30\",\n        \"alumno_id\": 1,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 63,\n        \"fecha_matricula\": \"2012-04-17\",\n        \"alumno_id\": 2,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 64,\n        \"fecha_matricula\": \"1972-05-30\",\n        \"alumno_id\": 8,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 65,\n        \"fecha_matricula\": \"2001-10-10\",\n        \"alumno_id\": 20,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 66,\n        \"fecha_matricula\": \"2007-04-30\",\n        \"alumno_id\": 7,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 67,\n        \"fecha_matricula\": \"2001-11-15\",\n        \"alumno_id\": 4,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 68,\n        \"fecha_matricula\": \"1978-05-14\",\n        \"alumno_id\": 19,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 69,\n        \"fecha_matricula\": \"2020-01-14\",\n        \"alumno_id\": 15,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 70,\n        \"fecha_matricula\": \"1989-04-01\",\n        \"alumno_id\": 10,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 71,\n        \"fecha_matricula\": \"2007-05-02\",\n        \"alumno_id\": 15,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 72,\n        \"fecha_matricula\": \"1986-05-14\",\n        \"alumno_id\": 1,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 73,\n        \"fecha_matricula\": \"1986-09-03\",\n        \"alumno_id\": 5,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 74,\n        \"fecha_matricula\": \"1979-05-26\",\n        \"alumno_id\": 11,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 75,\n        \"fecha_matricula\": \"1976-12-02\",\n        \"alumno_id\": 9,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 76,\n        \"fecha_matricula\": \"2007-05-15\",\n        \"alumno_id\": 16,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 77,\n        \"fecha_matricula\": \"1976-01-11\",\n        \"alumno_id\": 19,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 78,\n        \"fecha_matricula\": \"1988-07-08\",\n        \"alumno_id\": 3,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 79,\n        \"fecha_matricula\": \"1980-11-14\",\n        \"alumno_id\": 18,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 80,\n        \"fecha_matricula\": \"2004-03-25\",\n        \"alumno_id\": 5,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 81,\n        \"fecha_matricula\": \"1989-07-12\",\n        \"alumno_id\": 1,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 82,\n        \"fecha_matricula\": \"1971-09-25\",\n        \"alumno_id\": 17,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 83,\n        \"fecha_matricula\": \"1977-10-22\",\n        \"alumno_id\": 12,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 84,\n        \"fecha_matricula\": \"1979-01-26\",\n        \"alumno_id\": 14,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 85,\n        \"fecha_matricula\": \"2015-02-13\",\n        \"alumno_id\": 20,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 86,\n        \"fecha_matricula\": \"2018-10-18\",\n        \"alumno_id\": 7,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 87,\n        \"fecha_matricula\": \"1992-08-22\",\n        \"alumno_id\": 17,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 88,\n        \"fecha_matricula\": \"1980-03-07\",\n        \"alumno_id\": 4,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 89,\n        \"fecha_matricula\": \"1971-07-15\",\n        \"alumno_id\": 11,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 90,\n        \"fecha_matricula\": \"1976-06-21\",\n        \"alumno_id\": 12,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 91,\n        \"fecha_matricula\": \"2017-08-10\",\n        \"alumno_id\": 11,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 92,\n        \"fecha_matricula\": \"2009-09-06\",\n        \"alumno_id\": 12,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 93,\n        \"fecha_matricula\": \"2011-11-16\",\n        \"alumno_id\": 12,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 94,\n        \"fecha_matricula\": \"2014-06-19\",\n        \"alumno_id\": 2,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 95,\n        \"fecha_matricula\": \"2020-01-14\",\n        \"alumno_id\": 4,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 96,\n        \"fecha_matricula\": \"1976-07-13\",\n        \"alumno_id\": 9,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 97,\n        \"fecha_matricula\": \"1987-06-24\",\n        \"alumno_id\": 15,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 98,\n        \"fecha_matricula\": \"2022-10-04\",\n        \"alumno_id\": 17,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 99,\n        \"fecha_matricula\": \"1975-11-30\",\n        \"alumno_id\": 7,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 100,\n        \"fecha_matricula\": \"2017-11-09\",\n        \"alumno_id\": 13,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 101,\n        \"fecha_matricula\": \"1972-10-28\",\n        \"alumno_id\": 1,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 102,\n        \"fecha_matricula\": \"1994-11-08\",\n        \"alumno_id\": 5,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 103,\n        \"fecha_matricula\": \"1995-12-17\",\n        \"alumno_id\": 18,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 104,\n        \"fecha_matricula\": \"1987-10-15\",\n        \"alumno_id\": 17,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 105,\n        \"fecha_matricula\": \"1995-11-25\",\n        \"alumno_id\": 9,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 106,\n        \"fecha_matricula\": \"1983-02-22\",\n        \"alumno_id\": 15,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 107,\n        \"fecha_matricula\": \"1994-03-06\",\n        \"alumno_id\": 8,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 108,\n        \"fecha_matricula\": \"1993-01-02\",\n        \"alumno_id\": 1,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 109,\n        \"fecha_matricula\": \"1982-08-10\",\n        \"alumno_id\": 8,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 110,\n        \"fecha_matricula\": \"2022-11-04\",\n        \"alumno_id\": 18,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 111,\n        \"fecha_matricula\": \"1976-09-04\",\n        \"alumno_id\": 12,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 112,\n        \"fecha_matricula\": \"2012-07-07\",\n        \"alumno_id\": 16,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 113,\n        \"fecha_matricula\": \"2010-02-10\",\n        \"alumno_id\": 9,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 114,\n        \"fecha_matricula\": \"2005-10-25\",\n        \"alumno_id\": 12,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 115,\n        \"fecha_matricula\": \"2002-01-09\",\n        \"alumno_id\": 13,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 116,\n        \"fecha_matricula\": \"1998-03-13\",\n        \"alumno_id\": 2,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 117,\n        \"fecha_matricula\": \"2010-10-13\",\n        \"alumno_id\": 18,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 118,\n        \"fecha_matricula\": \"2008-12-08\",\n        \"alumno_id\": 9,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 119,\n        \"fecha_matricula\": \"2010-08-08\",\n        \"alumno_id\": 16,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    },\n    {\n        \"id\": 120,\n        \"fecha_matricula\": \"1983-07-30\",\n        \"alumno_id\": 8,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n        \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n    }\n]"
+				},
+				{
+					"name": "Get matricula id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/matriculas/3"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:30:43 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:30:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"fecha_matricula\": \"1995-06-26\",\n    \"alumno_id\": 7,\n    \"curso_id\": 5,\n    \"created_at\": \"2023-11-18T18:47:09.000000Z\",\n    \"updated_at\": \"2023-11-18T18:47:09.000000Z\"\n}"
+				},
+				{
+					"name": "Get asistencias",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/asistencias/3"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:34:12 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:34:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"fecha_asistencia\": \"2015-03-19\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 1,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 2,\n        \"fecha_asistencia\": \"1970-11-10\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 2,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 3,\n        \"fecha_asistencia\": \"2012-11-21\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 16,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 4,\n        \"fecha_asistencia\": \"1975-10-20\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 12,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 5,\n        \"fecha_asistencia\": \"1983-12-28\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 1,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 6,\n        \"fecha_asistencia\": \"2004-12-05\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 13,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 7,\n        \"fecha_asistencia\": \"1971-07-30\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 15,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 8,\n        \"fecha_asistencia\": \"1980-01-12\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 7,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 9,\n        \"fecha_asistencia\": \"2020-07-06\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 11,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 10,\n        \"fecha_asistencia\": \"2014-02-27\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 11,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 11,\n        \"fecha_asistencia\": \"2014-11-13\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 13,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 12,\n        \"fecha_asistencia\": \"1990-12-10\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 4,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 13,\n        \"fecha_asistencia\": \"1991-11-29\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 7,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 14,\n        \"fecha_asistencia\": \"1996-09-10\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 20,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 15,\n        \"fecha_asistencia\": \"2003-11-11\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 5,\n        \"curso_id\": 2,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 16,\n        \"fecha_asistencia\": \"1987-10-29\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 19,\n        \"curso_id\": 3,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 17,\n        \"fecha_asistencia\": \"1978-02-12\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 15,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 18,\n        \"fecha_asistencia\": \"2016-11-09\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 14,\n        \"curso_id\": 1,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 19,\n        \"fecha_asistencia\": \"1971-01-15\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 17,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 20,\n        \"fecha_asistencia\": \"2005-02-28\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 15,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 21,\n        \"fecha_asistencia\": \"1972-06-06\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 13,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 22,\n        \"fecha_asistencia\": \"2010-05-28\",\n        \"asistencia\": \"A\",\n        \"alumno_id\": 7,\n        \"curso_id\": 5,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 23,\n        \"fecha_asistencia\": \"1989-07-26\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 2,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 24,\n        \"fecha_asistencia\": \"1992-01-24\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 18,\n        \"curso_id\": 6,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 25,\n        \"fecha_asistencia\": \"1993-11-29\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 10,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 26,\n        \"fecha_asistencia\": \"2005-05-25\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 13,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 27,\n        \"fecha_asistencia\": \"2012-02-01\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 8,\n        \"curso_id\": 4,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 28,\n        \"fecha_asistencia\": \"2001-11-15\",\n        \"asistencia\": \"F\",\n        \"alumno_id\": 14,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 29,\n        \"fecha_asistencia\": \"1994-04-17\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 8,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    },\n    {\n        \"id\": 30,\n        \"fecha_asistencia\": \"1999-03-30\",\n        \"asistencia\": \"T\",\n        \"alumno_id\": 2,\n        \"curso_id\": 7,\n        \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n        \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n    }\n]"
+				},
+				{
+					"name": "Get asistencias id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://127.0.0.1:8000/api/asistencias/3"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:34:48 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:34:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"fecha_asistencia\": \"2012-11-21\",\n    \"asistencia\": \"T\",\n    \"alumno_id\": 16,\n    \"curso_id\": 6,\n    \"created_at\": \"2023-11-18T18:46:52.000000Z\",\n    \"updated_at\": \"2023-11-18T18:46:52.000000Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Post data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n  \"curso_id\": 1,\n  \"alumno_id\": 121,\n  \"fecha_matricula\": \"2023-11-18\"\n  \n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/alumnos/121/matriculas",
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": [
+				{
+					"name": "Post alumno Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"nombre\": \"Felipe\",\n  \"docente_id\": 121\n \n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/asistencias"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:03:56 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:03:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "alumno registrado Exítosamente"
+				},
+				{
+					"name": "Post alumno",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"nombre\": \"Andres Felipe\",\n  \"apellido\": \"Medina\",\n  \"email\": \"andres@gmail.com\"\n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/alumnos/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:03:56 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:03:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "alumno registrado Exítosamente"
+				},
+				{
+					"name": "Post matricula",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"curso_id\": 1,\n  \"alumno_id\": 121,\n  \"fecha_matricula\": \"2023-11-18\"\n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/alumnos/121/matriculas"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:19:20 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:19:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "matricula registrada correctamente"
+				},
+				{
+					"name": "Post docente",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"nombre\": \"Felipe\",\n  \"apellido\": \"Medina\",\n  \"email\": \"andres@gmail.com\"\n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/docentes/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:37:32 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 20:37:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "docente registrado correctamente"
+				},
+				{
+					"name": "Post curso",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"nombre\": \"PROGRAMACION\",\n  \"docente_id\": 41\n \n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/cursos"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 21:06:14 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 21:06:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "curso registrado correctamente"
+				},
+				{
+					"name": "Post asistencia",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"curso_id\":14,\n  \"alumno_id\":119,\n \"asistencia\": \"A\",\n \"fecha_asistencia\":\"2023-11-19\"\n\n\n\n \n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/asistencias"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 22:05:32 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 22:05:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "asistencia registrada correctamente"
+				}
+			]
+		},
+		{
+			"name": "Update data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful PUT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Andres Felipe\",\n  \"apellido\": \"Medina muños\",\n  \"email\": \"andresMedina@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/alumnos/121",
+				"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Update alumno",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Andres Felipe\",\n  \"apellido\": \"Medina muños\",\n  \"email\": \"andresMedina@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/alumnos/121"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:08:38 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 17:08:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "se edito correctamente"
+				},
+				{
+					"name": "Update matricula",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"curso_id\": 1,\n  \"alumno_id\": 120,\n  \"fecha_matricula\": \"2023-11-18\"\n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/matriculas/15"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 22:43:47 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 22:43:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "matricula actualizada correctamente"
+				},
+				{
+					"name": "Update docente",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"nombre\": \"Felipe\",\n  \"apellido\": \"Medina\",\n  \"email\": \"andres@gmail.com\"\n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/docentes/16"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 22:44:30 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 22:44:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "editado correctamente"
+				},
+				{
+					"name": "Update curso",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n  \"nombre\": \"PROGRAMACION\",\n  \"docente_id\": 41\n \n  \n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/cursos/3"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 22:45:10 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 22:45:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "curso editado correctamente"
+				},
+				{
+					"name": "Update asistencia",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"fecha_asistencia\":\"2023-11-19\",\n  \"curso_id\":3,\n  \"alumno_id\":1,\n \"asistencia\": \"T\"\n \n\n\n\n \n  \n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/asistencias/1"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:10:39 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:10:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "asistencia editada correctamente"
+				}
+			]
+		},
+		{
+			"name": "Delete data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1:8000/api/alumnos/120",
+				"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
+			},
+			"response": [
+				{
+					"name": "Delete alumno",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/alumnos/120"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 18:47:49 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 18 Nov 2023 18:47:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "Se ha eliminado el alumno"
+				},
+				{
+					"name": "Delete docente",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/docentes/21"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:25:08 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:25:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": " eliminado correctamente"
+				},
+				{
+					"name": "Delete matricula",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/matriculas/7"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:35:12 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:35:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "matricula eliminada correctamente"
+				},
+				{
+					"name": "Delete curso",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/cursos/7"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:36:05 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:36:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "curso eliminado correctamente"
+				},
+				{
+					"name": "Delete asistencia",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/asistencias/7"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:36:41 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 19 Nov 2023 23:36:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "asistencia eliminado correctamente"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		}
+	]
+}

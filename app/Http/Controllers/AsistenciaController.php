@@ -30,8 +30,8 @@ class AsistenciaController extends Controller
     {
         $asistencia = new Asistencia();
 
-        $asistencia->curso_id = $request->id_curso_id;
-        $asistencia->alumno_id = $request->id_alumno_id;
+        $asistencia->curso_id = $request->curso_id;
+        $asistencia->alumno_id = $request->alumno_id;
         $asistencia->asistencia = $request->asistencia;
         $asistencia->fecha_asistencia = $request->fecha_asistencia;;
         
@@ -63,8 +63,8 @@ class AsistenciaController extends Controller
     {
         $asistencia = Asistencia::find($id);
 
-        $asistencia->curso_id = $request->id_curso_id;
-        $asistencia->alumno_id = $request->id_alumno_id;
+        $asistencia->curso_id = $request->curso_id;
+        $asistencia->alumno_id = $request->alumno_id;
         $asistencia->asistencia = $request->asistencia;
         $asistencia->fecha_asistencia = $request->fecha_asistencia;;
         
